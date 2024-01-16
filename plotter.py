@@ -27,8 +27,12 @@ class Plot:
 
         :param field: The column name in the DataFrame for which the histogram will be generated.
         """
-        
+       
         self.df[field].hist(*args, **kwargs)
+        plt.title(kwargs.get('title', f'Histogram of {field}'))
+        plt.xlabel(kwargs.get('xlabel', field))
+        plt.ylabel(kwargs.get('ylabel', 'Frequency'))
+
         img_fname = os.path.join(self.output_path, f"hist_{field}.{self.image_type}")
         plt.savefig(img_fname)
         self.output_filename_list.append(img_fname)
@@ -66,6 +70,12 @@ class Plot:
             x, y = self.df[col_1], self.df[col_2]
         
         plot_func(x, y, *args, **kwargs)
+        # title and axes
+        plt.title(kwargs.get('title', f'{plot_type_str.capitalize()} of {col_1} vs {col_2}'))
+        plt.xlabel(kwargs.get('xlabel', col_1))
+        plt.ylabel(kwargs.get('ylabel', col_2))
+
+
         img_fname = os.path.join(self.output_path, f"{plot_type_str}_{col_1}_{col_2}.{self.image_type}")
         plt.savefig(img_fname)
         self.output_filename_list.append(img_fname)
