@@ -76,5 +76,5 @@ class Plot:
             plt.show()    
 
 plot = Plot("./deviation.json")
-plot.draw_plots(plt.scatter, "gt_corners", "rb_corners")
-plot.draw_plots(plt.scatter, "max", "mean")
+plot.draw_plot(plt.scatter, "gt_corners", "rb_corners")
+plot.draw_plot(plt.scatter, "max", "mean")
