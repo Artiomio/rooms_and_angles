@@ -31,7 +31,9 @@ class Plot:
     
         if not self.display_plots:
             plt.close()
-
+        else:
+            plt.show()
+        
 
 
     def pair_plot(self, plot_type, col_1: str, col_2: str, *args, **kwargs):
@@ -53,10 +55,13 @@ class Plot:
 
         if not self.display_plots:
             plt.close()
-    
+        else:
+            plt.show()    
         
         
 plot = Plot("./deviation.json")
+        
+
 plot.pair_plot(plt.scatter, "gt_corners", "rb_corners")
 plot.pair_plot(plt.scatter, "mean", "max")
 plot.hist('mean')
