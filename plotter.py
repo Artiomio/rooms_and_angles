@@ -38,7 +38,7 @@ class Plot:
         else:
             plt.show()
 
-    def draw_plots(self, plot_type, col_1: str, col_2: str, sort_by_first_column=True, *args, **kwargs):
+    def draw_plot(self, plot_type, col_1: str, col_2: str, sort_by_first_column=True, *args, **kwargs):
         """
         Generate and save a plot of the specified type comparing two columns in the DataFrame.
 
